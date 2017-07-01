@@ -1,7 +1,7 @@
 # JsGpio
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
+This application is made for controlling RaspberryPI via Web interface.
 ## Application
 
 Run ng serve to launch application.
