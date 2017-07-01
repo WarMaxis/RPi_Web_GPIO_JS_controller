@@ -1,0 +1,36 @@
+<div [ngClass]="{'pin': true, 'enabled': pin.enabled, 'input': pin.input}">
+  <div *ngIf="!isEditMode; else editForm"  (click)="click()">
+    <div>ID: {{pin.ID}}</div>
+    <div *ngIf="pin.enabled">
+      <div>Duty: {{pin.value}}</div>
+      <div>Enabled: {{pin.enabled}}</div>
+      <div *ngIf="pin.input; else outputPin">Input Pin</div>
+      <ng-template #outputPin>Output Pin</ng-template>
+    </div>
+  </div>
+  <ng-template #editForm>
+    <div>
+      ID: {{pin.ID}}
+    </div>
+    <div>
+      <label>Value: </label><br>
+      <input [(ngModel)]="pin.value" placeholder="Value" type="number"/>
+    </div>
+    <div>
+      <label>Enable: </label>
+      <input [(ngModel)]="pin.enabled" type="checkbox"/>
+    </div>
+    <div *ngIf="pin.enabled">
+      <div>
+      <label>I/O: </label><br>
+      <input type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="true">In
+      <input type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="false">Out
+    </div>
+    <div *ngIf="!pin.input">
+      <label>Frequency: </label>
+      <input [(ngModel)]="pin.frequency" placeholder="Hz" type="number"/>
+    </div>
+  </div>
+    <button type="button" (click)="send();">Send</button>
+  </ng-template>
+</div>

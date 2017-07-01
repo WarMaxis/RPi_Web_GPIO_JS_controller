@@ -1,0 +1,11 @@
+.pins {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pins li {
+  width: 15%;
+  height: 10%;
+}

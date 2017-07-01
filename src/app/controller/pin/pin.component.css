@@ -1,0 +1,22 @@
+.pin {
+    background-color: #737373;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid;
+    border-color: #000000;
+    text-align: left;
+}
+.pin input[type="number"] {
+  width: 90%;
+}
+.pin.enabled {
+  background-color: #ff7300;
+}
+
+.pin.enabled.input {
+  background-color: #00ff66;
+}
+
+.pin * {
+  cursor: pointer;
+}
