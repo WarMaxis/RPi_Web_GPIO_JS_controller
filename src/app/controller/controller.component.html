@@ -1,5 +1,10 @@
+<select [(ngModel)]="sortingOrder">
+  <option selected value='ID'>ID</option>
+  <option selected value='-value'>Value</option>
+</select>
+
 <ul class="pins">
-  <li *ngFor="let pin of pins">
+  <li *ngFor="let pin of pins | orderBy:sortingOrder">
     <pin [pin]="pin" ></pin>
   </li>
 </ul>

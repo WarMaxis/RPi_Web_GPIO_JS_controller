@@ -6,7 +6,7 @@
     border-color: #000000;
     text-align: left;
 }
-.pin input[type="number"] {
+.pin input[type="number"], input[type="range"] {
   width: 90%;
 }
 .pin.enabled {

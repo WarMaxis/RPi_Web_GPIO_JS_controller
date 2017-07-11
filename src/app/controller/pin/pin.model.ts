@@ -7,4 +7,5 @@ export class Pin {
   setInput(isInput: boolean): void {
     this.input = isInput;
   }
+  checkInterval: number;
 }

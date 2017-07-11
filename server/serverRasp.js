@@ -34,19 +34,22 @@ app.post('/pin/set', function (req, res) {
 
 
 });
-
-app.get('/pin/get', function (req, res) {
-  var pinData = req.body;
-  if (pinData.input) {
+app.param('id', function (req, res, next, id) {
+  if (pinArray[id].input) {
     raspi.init(() => {
-  const input = new gpio.DigitalInput({
-    pin: pinData.ID
+    const input = new gpio.DigitalInput({
+      pin: pinArray[id].ID
+    });
+    pinArray[id].value = input.read();
+    res.send(pinArray[id]);
+    console.log(pinArray[id]);
   });
-  pinData.value = input.read();
-  res.send(pinData);
-  console.log(pinData);
+}
+    next();
 });
-  }
+
+app.get('/pin/get/:id', function (req, res, next) {
+next();
 });
 
 app.get('/all/get', function (req, res) {

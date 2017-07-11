@@ -15,8 +15,27 @@ export class PinComponent {
   click(): void {
     this.isEditMode = !this.isEditMode;
   }
-  send(): void {
+  pinStateSubscribe: any;
+  onSubmit(): void {
     this.click();
+    this.sendPinData();
+  }
+
+  sendPinData(): void {
     this.pinService.setPinState(this.pin);
+    if (this.pin.input && this.pin.enabled) {
+      this.subscribePinState();
+    }
+  }
+
+  subscribePinState(): void {
+    this.pinService.setPinStateSubscribe(this.pin, this.pin.checkInterval);
+    this.pinStateSubscribe = this.pinService.pinStateSubscribe.subscribe(pin => {
+      if (!this.isEditMode) {
+        this.pin = pin;
+      } else {
+        this.pinStateSubscribe.unsubscribe();
+      }
+    });
   }
 }

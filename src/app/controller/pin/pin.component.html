@@ -9,28 +9,35 @@
     </div>
   </div>
   <ng-template #editForm>
-    <div>
-      ID: {{pin.ID}}
-    </div>
-    <div>
-      <label>Value: </label><br>
-      <input [(ngModel)]="pin.value" placeholder="Value" type="number"/>
-    </div>
-    <div>
-      <label>Enable: </label>
-      <input [(ngModel)]="pin.enabled" type="checkbox"/>
-    </div>
-    <div *ngIf="pin.enabled">
+    <form (ngSubmit)="onSubmit()" #pinForm="ngForm">
       <div>
-      <label>I/O: </label><br>
-      <input type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="true">In
-      <input type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="false">Out
+        ID: {{pin.ID}}
+      </div>
+
+      <div>
+        <label>Enable: </label>
+        <input name="enabled" [(ngModel)]="pin.enabled" type="checkbox"/>
+      </div>
+      <div *ngIf="pin.enabled">
+        <div>
+          <label>Duty: {{pin.value}}</label><br>
+          <input id="value" #name="ngModel" name="value" [(ngModel)]="pin.value" min="0" max="1" type="range" step="0.01"/>
+        </div>
+        <div>
+        <label>I/O: </label><br>
+        <input id="input" #input="ngModel" name="input" type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="true">In
+        <input id="output" #output="ngModel" name="output" type="radio" [(ngModel)]="pin.input" name="pin{{pin.ID}}Input" [value]="false">Out
+      </div>
+      <div *ngIf="!pin.input">
+        <label>Frequency: {{pin.frequency}}</label>
+        <input id="frequency" #frequency="ngModel" name="frequency" [(ngModel)]="pin.frequency" min="0" max="200" type="range"/>
+      </div>
+      <div *ngIf="pin.input">
+        <label>Check Interval(ms): {{pin.checkInterval}}</label>
+        <input id="checkInterval" #checkInterval="ngModel" name="checkInterval" [(ngModel)]="pin.checkInterval" min="0" max="1000" type="range"/>
+      </div>
     </div>
-    <div *ngIf="!pin.input">
-      <label>Frequency: </label>
-      <input [(ngModel)]="pin.frequency" placeholder="Hz" type="number"/>
-    </div>
-  </div>
-    <button type="button" (click)="send();">Send</button>
+      <input type="submit" value="Send"/>
+    </form>
   </ng-template>
 </div>

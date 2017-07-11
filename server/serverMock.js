@@ -23,13 +23,17 @@ app.post('/pin/set', function (req, res) {
     res.send("Pin disabled");
   }
 });
-
-app.get('/pin/get', function (req, res) {
-  var pinData = req.body;
-  if (pinData.input) {
-  res.send(pinData);
-  console.log(pinData);
+app.param('id', function (req, res, next, id) {
+  if (pinArray[id].input) {
+    pinArray[id].value = pinArray[id].ID;
+  res.send(pinArray[id]);
+  console.log(pinArray[id]);
   }
+  next();
+});
+
+app.get('/pin/get/:id', function (req, res, next) {
+next();
 });
 
 app.get('/all/get', function (req, res) {

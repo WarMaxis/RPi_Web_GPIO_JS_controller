@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pin } from './pin/pin.model';
-import { PinService } from './pin/pin.service'
+import { PinService } from './pin/pin.service';
 
 @Component({
   selector: 'pin-controller',
