@@ -1,2 +1,5 @@
-.main-component {
+/* Ostylowanie nawigacji pinów */
+
+.main-component .navbar-nav {
+    font-size: 18px;
 }
