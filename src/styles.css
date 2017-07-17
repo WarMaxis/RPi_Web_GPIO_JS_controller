@@ -80,6 +80,10 @@
     }
 }
 
+.navbar {
+    border-radius: 0px;
+}
+
 footer {
     height: 70px;
 }
