@@ -1,11 +1,18 @@
-.pins {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.sort-pins-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 30px 40px 30px;
 }
 
-.pins li {
-  width: 15%;
-  height: 10%;
+.sort-pins-container h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.sort-pins {
+    background-color: #FFC0A4;
+    color: #EB5E28;
+    font-weight: bold;
+    cursor: pointer;
 }

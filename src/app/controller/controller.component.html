@@ -1,10 +1,18 @@
-<select [(ngModel)]="sortingOrder">
-  <option selected value='ID'>ID</option>
-  <option selected value='-value'>Value</option>
-</select>
+<div class="sort-pins-container">
+    <h2>
+        App ready, select and sort pins
+    </h2>
 
-<ul class="pins">
-  <li *ngFor="let pin of pins | orderBy:sortingOrder">
-    <pin [pin]="pin" ></pin>
-  </li>
-</ul>
+    <select class="sort-pins form-control" [(ngModel)]="sortingOrder">
+        <option value='ID'>ID</option>
+        <option value='-value'>Value</option>
+    </select>
+</div>
+
+<div class="container">
+    <div class="row pins">
+        <div class="col-xs-12 col-md-6" *ngFor="let pin of pins | orderBy:sortingOrder">
+            <pin [pin]="pin"></pin>
+        </div>
+    </div>
+</div>
