@@ -3,3 +3,7 @@
 .main-component .navbar-nav {
     font-size: 18px;
 }
+
+.main-component .pins-container {
+    padding: 40px 0;
+}
