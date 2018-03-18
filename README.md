@@ -1,15 +1,42 @@
-# JsGpio
+# RPi Web GPIO JS controller
+
+Web application that allow you to control GPIO ports in Raspberry Pi :-)  
+__Project is in draft, my role was design UI and style it in CSS.__  
+Made in _Angular_ framework.
+
+Created by __[Tomasz Szarek](https://github.com/Mighty683)__ (core of application) and __[Michał Milanowski](https://www.linkedin.com/in/michalmilanowski/)__ (UI design and styles in CSS).
+
+## Functions:
+
+* on/off GPIO ports on RPi
+* control the voltage of GPIO ports
+* __MockServer__ (mock server works on all devices and is used to test behaviour of app)
+* __RaspServer__ (RaspServer works on RPi, listen on port __3000__ and control GPIO)
+
+## How to start?
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
-This application is made for controlling RaspberryPI via Web interface.
-## Application
+1. Install dependencies
+```bash
+$ npm install
+```
 
-Run ng serve to launch application.
+2. Run script to launch app
+```bash
+$ ng serve
+```
 
-## MockServer
+3. Or build application
+```bash
+$ ng build
+```
 
-Mock server works on all devices and is used to test behaviour of app.
+## Used technologies in this project:
 
-## RaspServer
-
-RaspServer works on raspberryPi listen on port 3000 and control GPIO
+* __JavaScript__
+* __Angular__
+* __TypeScript__
+* __HTML__
+* __CSS__
+* __[Paper Kit for UI](https://demos.creative-tim.com/paper-kit) (so beautiful CSS kit!)__
